@@ -1,23 +1,21 @@
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from 'react';
 
-export default function Intro() {
-  const [visible, setVisible] = useState(true);
-
+export default function Intro({ onFinish }) {
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 4000);
+    const timer = setTimeout(onFinish, 4000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [onFinish]);
 
-  return visible ? (
-    <div className="fixed inset-0 bg-[#0b0f17] flex items-center justify-center z-50">
-      <Image
-        src="/logo.png"
-        alt="شعار الشرطة"
-        width={200}
-        height={200}
-        className="drop-shadow-[0_0_20px_rgba(100,180,255,0.8)] transition-all"
+  return (
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-black text-white z-50">
+      <img
+        src="/logo-police.png"
+        alt="Police Logo"
+        className="w-32 h-32 mb-4 glow"
       />
+      <h1 className="text-3xl font-bold tracking-wide glow">
+        تحديث مركز عمليات الشرطة
+      </h1>
     </div>
-  ) : null;
+  );
 }

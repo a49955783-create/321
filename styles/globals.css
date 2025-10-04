@@ -3,11 +3,20 @@
 @tailwind utilities;
 
 body {
-  direction: rtl;
-  font-family: "Cairo", sans-serif;
-  background-image: url("/bg-police.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url('/background-police.png') center/cover no-repeat;
   color: white;
+  font-family: 'Tajawal', sans-serif;
+}
+
+input, select, button {
+  color: black;
+}
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 8px #00b7ff); }
+  50% { filter: drop-shadow(0 0 12px #fff); }
+}
+
+.glow {
+  animation: glow 2s infinite;
 }
